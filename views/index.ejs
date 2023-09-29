@@ -1,0 +1,41 @@
+<%- include("partials/head")%>
+<body>
+    <div style="padding: 50px;">
+        <h1>Mis Publicaciones</h1>
+    
+    
+        <br>
+        <a type="button" class="btn btn-success" href="/agregar">
+            Agregar Publicacion
+        </a>
+        <br>
+        <br>
+        <br>
+        
+        <% publicaciones.forEach((item) => { %>
+        <div class="card mb-3" style="max-width: 740px; height: 370px; ">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src= "<%= item.Imagen %>"  class="img-fluid rounded-start">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= item.id + ". " + item.Titulo %></h5>
+                    <p class="card-text"><%= item.Descripcion %></p>
+                    <div style="text-align: right">
+                    <a type="button" class="btn btn-primary" href="/editar/<%= item.id %>">
+                        Editar Publicacion
+                    </a>
+                    <a type="button" class="btn btn-danger" href="/eliminar/<%= item.id %>">
+                        Eliminar Publicacion
+                    </a>
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
+<%- include("partials/footer")%>
